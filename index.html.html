@@ -1,0 +1,398 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TO_translated_ta_20251109_150350</title><style>body{font-family:Arial;padding:14px;background:#8a9393;color:#f4f0f0}select{font-size:20px;padding:12px 20px;height:48px;border-radius:6px;border:2px solid #333}
+.pair{width:100%;box-sizing:border-box;margin-bottom:14px}
+.pair.box{background:#110fa9;border:4px solid #9b9992;padding:10px;border-radius:6px}
+.pair.empty{height:8px;margin-bottom:14px}
+.eng{font-weight:700;color:#f4f0f0;margin:0;line-height:1.18}
+.tr{color:#f9f10b;margin:0;display:block;margin-top:6px;line-height:1.26}
+    
+/* stronger spacing and clear to prevent overlap */
+.dropdown-wrap{display:block;margin-bottom:56px;}
+#output{margin-top:18px;}
+.pair.box{clear:both;}
+
+/* stronger final spacing and stacking */
+.dropdown-wrap{display:block;margin-bottom:64px !important;padding-bottom:4px;}
+#output{margin-top:0;padding-top:8px;}
+.pair.box{position:relative;z-index:2;clear:both;}
+.dropdown-wrap select{vertical-align:middle;}
+
+/* FINAL robust stacking fix */
+.dropdown-wrap{position:relative;display:block;z-index:1000;margin-bottom:72px !important;padding-bottom:6px;background:transparent;}
+.dropdown-wrap *{position:relative;z-index:1001;}
+#langSelect{display:inline-block;vertical-align:middle;margin-right:14px;}
+#output{clear:both;position:relative;z-index:1;padding-top:4px;margin-top:0;}
+.pair.box{display:block;clear:both;position:relative;z-index:1;margin-top:8px;}
+body {overflow-x:hidden;}
+
+</style></head><body>
+  
+  <div style="text-align:center;margin:8px 0"><img src="data:image/png;base64,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" style="max-height:90px;display:inline-block;border-radius:6px"/></div>
+  <div style="text-align:center;margin:10px 0;background:#880c0c;color:#f9f0f0;padding:6px 8px;border-radius:6px;"><h2>General Knowledge - 1<br>Bank / Railway / SSC / TNPSC</h2></div>
+  <label><b>Select Language:</b></label>
+  <select id="langDrop">
+    <option value="ta">Tamil</option>
+    <option value="ml">Malayalam</option>
+    <option value="hi">Hindi</option>
+    <option value="te">Telugu</option>
+    <option value="kn">Kannada</option>
+  </select>
+    <div id="takeTestContainer" style="margin-top:12px;">
+       <a href="https://lucent-moxie-7ac664.netlify.app/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:#1e88e5;color:#fff;font-weight:700;text-decoration:none;">Online Test</a>
+       
+     </div>
+  <div id="content"><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman judge in Supreme Court</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">உச்ச நீதிமன்றத்தின் முதல் பெண் நீதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs. Meera Sahib Fatima Bibi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி மீரா சாஹிப் பாத்திமா பீபி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Ambassador</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் தூதர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Miss C.B. Muthamma</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">மிஸ் சி.பி.முத்தம்மா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Governor of a state in free India</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">சுதந்திர இந்தியாவில் ஒரு மாநிலத்தின் முதல் பெண் ஆளுநர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Sarojini Naidu</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி சரோஜினி நாயுடு</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Speaker of a State Assembly</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஒரு மாநில சட்டசபையின் முதல் பெண் சபாநாயகர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Shanno Devi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஷனோ தேவி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Prime Minister</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் பிரதமர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Indira Gandhi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி இந்திரா காந்தி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Minister in a Government</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஒரு அரசில் முதல் பெண் அமைச்சர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Rajkumari Amrit Kaur</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ராஜ்குமாரி அம்ரித் கவுர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to climb Mount Everest</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">எவரெஸ்ட் சிகரத்தில் ஏறிய முதல் பெண்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Bachhendri Pal</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">பச்சேந்திரி பால்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to climb Mount Everest twice</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">எவரெஸ்ட் சிகரத்தில் இரண்டு முறை ஏறிய முதல் பெண்மணி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Santosh Yadav</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">சந்தோஷ் யாதவ்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman President of Indian National</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திய தேசியத்தின் முதல் பெண் ஜனாதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Annie Besant</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி அன்னி பெசன்ட்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman pilot in Indian Air Force</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திய விமானப்படையின் முதல் பெண் விமானி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Harita Kaur Dayal</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஹரிதா கவுர் தயாள்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Graduates</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் பட்டதாரி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Kadambini Ganguly and Chandramukhi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">காதம்பினி கங்குலி மற்றும் சந்திரமுகி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Airline Pilot</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் விமான பைலட்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Durba Banerjee</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">துர்பா பானர்ஜி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Honours Graduate</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் ஆனர்ஸ் பட்டதாரி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Kamini Roy, 1886</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">காமினி ராய், 1886</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Olympic medal Winner</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஒலிம்பிக்கில் பதக்கம் வென்ற முதல் பெண்மணி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Karnam Malleswari, 2000</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">கர்ணம் மல்லேஸ்வரி, 2000</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Asian Games Gold Medal Winner</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஆசிய விளையாட்டுப் போட்டியில் தங்கப் பதக்கம் வென்ற முதல் பெண்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Kamlijit Sandhu</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">கம்லிஜித் சந்து</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Lawyer</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் வழக்கறிஞர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Cornelia Sorabjee</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">கொர்னேலியா சொராப்ஜி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman President of United Nations General</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஐக்கிய நாடுகளின் ஜெனரலின் முதல் பெண் தலைவர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Vijaya Laxmi Pandit</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி விஜய லக்ஷ்மி பண்டிட்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Chief Minister of an Indian State</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திய மாநிலத்தின் முதல் பெண் முதல்வர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Sucheta Kripalani</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி சுசேதா கிருபாலானி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Chairman of Union Public Service</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">யூனியன் பப்ளிக் சர்வீஸின் முதல் பெண் தலைவர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Roze Millian Bethew</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ரோஸ் மில்லியன் பெத்யூ</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Director General of Police</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் போலீஸ் டைரக்டர் ஜெனரல்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Kanchan Chaudhary Bhattacharya</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">காஞ்சன் சௌத்ரி பட்டாச்சார்யா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Judge</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் நீதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Anna Chandy (She became judge in a district court in 1937)</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">அன்னா சாண்டி (1937 இல் மாவட்ட நீதிமன்றத்தில் நீதிபதியானார்)</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Cheif Justice of High Court</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">உயர் நீதிமன்றத்தின் முதல் பெண் தலைமை நீதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Leela Seth (Himachal Pradesh High Court)</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி லீலா சேத் (இமாச்சல பிரதேச உயர் நீதிமன்றம்)</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Judge in Supreme Court of India</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியாவின் உச்ச நீதிமன்றத்தின் முதல் பெண் நீதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Kumari Justice M. Fathima Beevi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">குமரி நீதிபதி எம். பாத்திமா பீவி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Lieutenant General</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் லெப்டினன்ட் ஜெனரல்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Puneeta Arora</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">புனிதா அரோரா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman Air Vice Marshal</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் ஏர் வைஸ் மார்ஷல்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">P. Bandopadhyaya</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">பி.பந்தோபாத்யாயா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman chairperson of Indian Airlines</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியன் ஏர்லைன்ஸின் முதல் பெண் தலைவர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Sushma Chawla</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">சுஷ்மா சாவ்லா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman IPS officer</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பெண் ஐபிஎஸ் அதிகாரி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs. Kiran Bedi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி கிரண் பேடி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first and last Muslim woman ruler of India</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியாவின் முதல் மற்றும் கடைசி முஸ்லிம் பெண் ஆட்சியாளர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Razia Sultan</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ரசியா சுல்தான்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to receive Ashoka Chakra</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">அசோக சக்கரம் பெற்ற முதல் பெண்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Nirja Bhanot</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">நிர்ஜா பானோட்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to receive Jnanpith Award</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஞானபீட விருது பெற்ற முதல் பெண்மணி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Ashapurna Devi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஆஷாபூர்ணா தேவி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to cross English Channel</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஆங்கிலக் கால்வாயைக் கடந்த முதல் பெண்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Aarti Saha</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஆர்த்தி சாஹா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to receive Nobel Prize</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">நோபல் பரிசு பெற்ற முதல் பெண்மணி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mother Teresa</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">அன்னை தெரசா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to receive Bharat Ratna</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">பாரத ரத்னா பெற்ற முதல் பெண்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mrs Indira Gandhi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">திருமதி இந்திரா காந்தி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first woman to receive Jnanpith Award</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஞானபீட விருது பெற்ற முதல் பெண்மணி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Ashpurna Devi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">அஷ்பூர்ணா தேவி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">The first women head of Indian Cost Accounting</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திய காஸ்ட் அக்கவுண்டிங்கின் முதல் பெண் தலைவர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Aruna Sethi</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">அருணா சேத்தி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Wax statue of a Living Indian</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">வாழும் இந்தியரின் முதல் மெழுகு சிலை</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Mahatma Gandhi at Madame Tussaud's in 1939</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">1939 இல் மேடம் துசாட்ஸில் மகாத்மா காந்தி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Chinese pilgrim to Visit India</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியாவிற்கு வருகை தந்த முதல் சீன யாத்ரீகர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Fa-hien</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஃபா-ஹியன்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Exclusive internet magazine</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">முதல் பிரத்தியேக இணைய இதழ்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Bharat Samachar</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">பாரத சமாச்சாரம்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Miss India to participate in Miss Universe</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">மிஸ் யுனிவர்ஸில் பங்கேற்ற முதல் மிஸ் இந்தியா</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Indrani Rehman</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திராணி ரெஹ்மான்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First President of Indian National Congress</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திய தேசிய காங்கிரஸின் முதல் தலைவர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">W.C. Bannerjee, 1885</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">டபிள்யூ.சி. பானர்ஜி, 1885</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Muslim President of the Indian National</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்திய தேசியத்தின் முதல் முஸ்லிம் ஜனாதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Badruddin Tayyabji</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">பத்ருதீன் தய்யாப்ஜி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Judge in International Court of Justice</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">சர்வதேச நீதிமன்றத்தின் முதல் நீதிபதி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Dr. Nagender Singh</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">டாக்டர் நாகேந்தர் சிங்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Graduate in Medicine</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">மருத்துவத்தில் முதல் பட்டதாரி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Soorjo Coomar Goodeve Chukerbutty</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">சூர்ஜோ குமார் கூடேவ் சுகர்புட்டி</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">India's First University</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியாவின் முதல் பல்கலைக்கழகம்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Nalanda University</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">நாளந்தா பல்கலைக்கழகம்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">India's First Open University</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியாவின் முதல் திறந்தவெளி பல்கலைக்கழகம்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Andhra Pradesh Open University</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஆந்திர பிரதேச திறந்தநிலை பல்கலைக்கழகம்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">India's First Lok Sabha Member to be elected with a</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">உடன் தேர்ந்தெடுக்கப்பட்ட இந்தியாவின் முதல் மக்களவை உறுப்பினர் ஏ</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">P.V.Narasimha Rao</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">பி.வி.நரசிம்ம ராவ்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First Indian to reach Antarctica</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">அண்டார்டிகாவை அடைந்த முதல் இந்தியர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Lt. Ram Charan</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">லெப்டினன்ட் ராம் சரண்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">First British to Visit India</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">இந்தியாவிற்கு வருகை தந்த முதல் ஆங்கிலேயர்</div>
+    </div><div class="pair box glow-animated shadow-on" style="background: rgb(17, 15, 169); border: 4px solid rgb(155, 153, 146); padding: 10px; margin-bottom: 14px; border-radius: 6px; --box-bg: linear-gradient(to bottom, #d7ef5a 0%, #c3b18a 100%); box-shadow: rgba(34, 73, 73, 0.45) 0px 0px 10px, rgba(34, 73, 73, 0.3) 0px 0px 22px, rgba(34, 73, 73, 0.2) 0px 0px 40px;">
+      <div class="eng" style="color:#f4f0f0">Hawkins</div>
+      <div class="tr" style="color:#f9f10b;margin-top:6px">ஹாக்கின்ஸ்</div>
+    </div></div>
+  <script>
+  async function tr(txt,lg){
+    if(!txt) return "";
+    let u="https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl="+lg+"&dt=t&q="+encodeURIComponent(txt);
+    let r=await fetch(u);
+    let d=await r.json();
+    return d[0].map(x=>x[0]).join("");
+  }
+  async function run(lg){
+    const els=document.querySelectorAll('.pair.box');
+    for(const p of els){
+      const eng=p.querySelector('.eng').textContent;
+      const t=await tr(eng,lg);
+      p.querySelector('.tr').textContent=t;
+    }
+  }
+  document.getElementById('langDrop').addEventListener('change',(e)=>run(e.target.value));
+  window.onload=()=>run(document.getElementById('langDrop').value);
+  </script>
+  
+
+<!-- WhatsApp floating (recreated smaller) -->
+<style>
+#whatsapp_container { position:fixed; bottom:14px; right:14px; z-index:99999; display:flex; align-items:center; gap:8px; }
+#whatsapp_button {
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg,#25d366,#00bfa5);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.18);
+  cursor:pointer;
+  border: 2px solid rgba(0,0,0,0.04);
+}
+#whatsapp_button svg { width:22px; height:22px; display:block; }
+#whatsapp_label {
+  font-size:14px;
+  color:#0b5;
+  font-weight:700;
+  background: rgba(255,255,255,0.95);
+  padding:6px 8px;
+  border-radius:6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display:inline-block;
+}
+/* hide textual label on small screens */
+@media (max-width:600px){
+  #whatsapp_label { display:none; }
+}
+</style>
+
+<div id="whatsapp_container">
+  <a id="whatsapp_link" href="https://wa.me/919655770912" target="_blank" rel="noopener" title="WhatsApp: 96 55 77 09 12">
+    <div id="whatsapp_button" aria-hidden="false" role="img" aria-label="WhatsApp">
+      <!-- Small embedded WhatsApp SVG (white mark) -->
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" focusable="false">
+        <circle cx="16" cy="16" r="16" fill="transparent"/>
+        <path fill="#ffffff" d="M23.3 19.4c-.4-.2-2.5-1.3-2.9-1.4-.4-.1-.7-.2-1 .2-.3.4-1.2 1.4-1.5 1.7-.3.3-.6.3-1 .1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.3-2.7-.2-.4 0-.7.2-.9.2-.2.4-.6.6-.8.2-.2.2-.4.4-.6.2-.2.1-.5 0-.7C12.4 12 11.3 9.9 11 9.2c-.3-.7-.7-.6-1-.6-.3 0-.6 0-.9 0-.3 0-.8.1-1.2.6-.4.5-1.6 1.5-1.6 3.8s1.6 4.4 1.8 4.7c.2.3 3.2 5.1 8 7.1 3 .1 4.8-.9 5.4-1.4.6-.5 1.3-1.1 1.5-1.8.2-.7.2-1.3.1-1.5-.1-.3-.4-.4-.8-.6z"/>
+      </svg>
+    </div>
+  </a>
+  <div id="whatsapp_label">96 55 77 09 12</div>
+</div>
+
+</body></html>
